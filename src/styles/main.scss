@@ -1,6 +1,10 @@
 @import "header.scss";
 @import "variables.scss";
 @import "card.scss";
+$cardInRow: 4;
+$columnGap: 48px;
+$rowGap: 50px;
+$containerWidth: $card-width * $cardInRow + $columnGap * 3;
 
 html {
   font-family: Roboto, sans-serif;
@@ -11,17 +15,14 @@ body {
 }
 
 .container__main {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: $container-width;
-
+  width: $containerWidth;
+  display: grid;
+  grid-template-columns: repeat($cardInRow, $card-width);
+  margin: 0 auto;
+  row-gap: $rowGap;
+  column-gap: $columnGap;
 }
 
 .margin {
-  margin: 50px auto;
-
-  .card {
-    margin-bottom: 50px;
-  }
+  margin-top: $rowGap;
 }
